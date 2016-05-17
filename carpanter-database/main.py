@@ -16,14 +16,23 @@
 #
 import webapp2
 
+#Read Data
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
-
-class TestHandler(webapp2.RequestHandler):
+#Insert Data
+class Create(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Test')
+        self.response.write('Create')
+#Update data
+class Update(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Update')
+#Delete data
+class Delete(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Delete')
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),('/test',TestHandler)
+    ('/', MainHandler),('/insert',Create),('/update',Update),('/delete',Delete)
 ], debug=True)
